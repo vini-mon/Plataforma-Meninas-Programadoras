@@ -15,6 +15,130 @@ listed here.
 export const toolbox = {
   'kind': 'categoryToolbox',
   'contents': [
+  {
+    'kind': 'category',
+    'name': 'Texxt',
+    'categorystyle': 'text_category',
+    'contents': [
+      {
+        'kind': 'block',
+        'type': 'text',
+      },
+      {
+        'kind': 'block',
+        'type': 'text_changeCase',
+        'inputs': {
+          'TEXT': {
+            'shadow': {
+              'type': 'text',
+              'fields': {
+                'TEXT': 'abc',
+              },
+            },
+          },
+        },
+      },
+      {
+        'kind': 'block',
+        'type': 'add_text',
+        'inputs': {
+          'TEXT': {
+            'shadow': {
+              'type': 'text',
+              'fields': {
+                'TEXT': 'abc',
+              },
+            },
+          },
+          'COLOR': {
+            'shadow': {
+              'type': 'colour_picker',
+              'fields': {
+                'COLOUR': '#aa00cc',
+              },
+            },
+          },
+        },
+      },
+    ],
+  },
+  {
+
+    'kind': 'category',
+    'name': 'Logic',
+    'categorystyle': 'logic_category',
+    'contents': [
+      {
+        'kind': 'block',
+        'type': 'controls_if',
+      },
+      {
+        'kind': 'block',
+        'type': 'logic_compare',
+      },
+      {
+        'kind': 'block',
+        'type': 'logic_operation',
+      },
+      {
+        'kind': 'block',
+        'type': 'logic_negate',
+      },
+      {
+        'kind': 'block',
+        'type': 'logic_boolean',
+      },
+      {
+        'kind': 'block',
+        'type': 'logic_null',
+      },
+      {
+        'kind': 'block',
+        'type': 'logic_ternary',
+      },
+    ],
+
+  }]
+};
+
+
+
+var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
+
+
+
+/*
+
+export const toolbox = {
+  'kind': 'categoryToolbox',
+  'contents': [
+    {
+      "kind": "category",
+      "name": "Custom",
+      "contents": [
+        {
+          "kind": "category",
+          "name": "Move",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "move_forward"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "Turn",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "turn_left"
+            }
+          ]
+        }
+      ]
+    },
+    
     {
       'kind': 'category',
       'name': 'Logic',
@@ -714,3 +838,5 @@ export const toolbox = {
     },
   ],
 };
+
+/**/
