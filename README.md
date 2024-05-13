@@ -10,3 +10,5 @@ https://blocklycodelabs.dev/codelabs/getting-started/index.html?index=..%2F..ind
 https://groups.google.com/g/blockly/c/kigOvf-r_CY
 
 https://github.com/google/blockly-games/tree/master/appengine/
+
+https://github.com/google/blockly-games/wiki/Offline
