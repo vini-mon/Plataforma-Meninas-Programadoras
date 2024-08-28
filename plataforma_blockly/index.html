@@ -13,16 +13,21 @@
         <div id="blocklyDiv"></div>
     </div>
 
-    <button id="runCode">Executar Código</button>
-    <button id="saveWorkspace">Salvar Workspace</button>
-    <button id="loadWorkspace">Carregar Workspace</button>
-    <!-- <input type="file" id="fileInput" style="display: none;"> -->
-    <input type="file" id="fileInput">
+    <div>
+        <button id="runCode">Executar Código</button>
+        <br />
 
-    <pre id="output"></pre>
+        <button id="saveWorkspace">Salvar Workspace</button>
+        <button id="loadWorkspace">Carregar Workspace</button>
+        <input type="file" id="fileInput" style="display: none;">
+
+        <button id="clearWorkspace">Limpar Workspace</button>
+
+        <pre id="output"></pre>
+    </div>
 
     <!-- Inclua os scripts do Blockly -->
-    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="js/blockly/blockly.min.js"></script>
     <script src="script.js"></script>
 
 </body>
