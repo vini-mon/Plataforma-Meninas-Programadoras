@@ -20,6 +20,8 @@ function restoreContainerSize() {
 // Restaura o tamanho do contêiner antes de inicializar o Blockly
 restoreContainerSize();
 
+
+
 // Inicialize o Blockly no elemento com id 'blocklyDiv'
 var workspace = Blockly.inject('blocklyDiv', {
     toolbox: `
@@ -27,8 +29,10 @@ var workspace = Blockly.inject('blocklyDiv', {
         <!-- Blocos de Controle de Fluxo -->
         <category name="Controle">
             <block type="controls_if"></block>
+            <block type="controls_ifelse"></block>
             <block type="controls_repeat_ext"></block>
             <block type="controls_whileUntil"></block>
+
         </category>
         
         <!-- Blocos de Lógica -->
@@ -36,6 +40,7 @@ var workspace = Blockly.inject('blocklyDiv', {
             <block type="logic_compare"></block>
             <block type="logic_operation"></block>
             <block type="logic_negate"></block>
+            <block type="logic_boolean"></block>
         </category>
         
         <!-- Blocos de Matemática -->
@@ -43,6 +48,7 @@ var workspace = Blockly.inject('blocklyDiv', {
             <block type="math_number"></block>
             <block type="math_arithmetic"></block>
             <block type="math_random_int"></block>
+
         </category>
         
         <!-- Blocos de Texto -->
@@ -51,6 +57,11 @@ var workspace = Blockly.inject('blocklyDiv', {
             <block type="text_print"></block>
         </category>
         
+        <!-- Bloco de cores -->
+        <category name="Cores">
+            <block type="colour_picker"></block>
+        </category>
+
         <!-- Blocos de Variáveis -->
         <category name="Variáveis" custom="VARIABLE"></category>
         
@@ -61,18 +72,16 @@ var workspace = Blockly.inject('blocklyDiv', {
         <category name="Entrada/Saída">
             <block type="text_prompt">
                 <field name="TYPE">TEXT</field>
+
             </block>
-        </category>
-        
-        <!-- Blocos de Cores -->
-        <category name="Cores">
-            <block type="colour_picker"></block>
         </category>
         
         <!-- Blocos de Listas (Opcional) -->
         <category name="Listas">
             <block type="lists_create_with"></block>
             <block type="lists_indexOf"></block>
+            <block type="lists_getIndex"></block>
+            <block type="lists_setIndex"></block>
         </category>
     </xml>
     `
