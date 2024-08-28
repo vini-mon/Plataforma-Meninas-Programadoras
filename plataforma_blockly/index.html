@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockly com JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Projeto Blockly com JavaScript</h1>
+
+    <div id="resizeContainer">
+        <div id="blocklyDiv"></div>
+    </div>
+
+    <button id="runCode">Executar Código</button>
+    <button id="saveWorkspace">Salvar Workspace</button>
+    <button id="loadWorkspace">Carregar Workspace</button>
+    <!-- <input type="file" id="fileInput" style="display: none;"> -->
+    <input type="file" id="fileInput">
+
+    <pre id="output"></pre>
+
+    <!-- Inclua os scripts do Blockly -->
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
