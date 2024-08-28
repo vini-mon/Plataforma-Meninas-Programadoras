@@ -1,0 +1,14 @@
+// instalação
+npm init -y
+npm install --save-dev typescript
+npx tsc --init
+// alterar tsconfig.json
+// adicionar webpack para Blockly
+npm install webpack-dev-server --save-dev
+// alterar package.json
+
+// execução
+npm start
+
+// compilaçao manual do webpack
+npx webpack

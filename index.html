@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockly Projeto</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="resizeContainer">
+        <div id="blocklyDiv"></div>
+    </div>
+    <div>
+        <button id="runCode">Executar Código</button>
+        <button id="saveWorkspace">Salvar Workspace</button>
+        <button id="loadWorkspace">Carregar Workspace</button>
+        <button id="clearWorkspace">Limpar Workspace</button>
+        <input type="file" id="fileInput" style="display: none;">
+    </div>
+    <pre id="output"></pre>
+
+    <!-- Referenciando o bundle.js gerado pelo Webpack -->
+    <script src="/dist/bundle.js"></script>
+</body>
+</html>

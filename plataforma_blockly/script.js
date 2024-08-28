@@ -97,8 +97,6 @@ function resizeBlockly() {
 var resizeObserver = new ResizeObserver(resizeBlockly);
 resizeObserver.observe(document.getElementById('resizeContainer'));
 
-// Restaura o tamanho do contêiner quando a página é carregada
-// window.addEventListener('load', restoreContainerSize);
 
 
 // Função para gerar e executar o código JavaScript do Blockly
