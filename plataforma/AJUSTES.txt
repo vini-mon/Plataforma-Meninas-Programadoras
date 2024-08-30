@@ -1,0 +1,81 @@
+1. Erro javaScript persiste
+ERROR
+Blockly.JavaScript is undefined
+@webpack://plataforma/./src/script.ts?:37:16
+EventListener.handleEvent*@webpack://plataforma/./src/script.ts?:36:15
+./src/script.ts@http://localhost:3000/bundle.js:96:1
+__webpack_require__@http://localhost:3000/bundle.js:388:32
+@http://localhost:3000/bundle.js:1454:56
+@http://localhost:3000/bundle.js:1456:12
+
+2. Adicionar If, else no bloco lógica e blocos If, else if, else
+
+
+3. Erro no color picker
+Invalid block definition for type: colour_picker
+Block$$module$build$src$core$block@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:974:488
+BlockSvg$$module$build$src$core$block_svg@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1226:385
+WorkspaceSvg$$module$build$src$core$workspace_svg.prototype.newBlock@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1644:444
+domToBlockHeadless$$module$build$src$core$xml@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:306:214
+domToBlockInternal$$module$build$src$core$xml@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:296:150
+createFlyoutBlock@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1420:4
+createFlyoutInfo@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1418:6
+show@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1416:192
+updateFlyout_@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1635:387
+setSelectedItem@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1634:103
+onClick_@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1623:97
+f@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:86:149
+EventListener.handleEvent*conditionalBind$$module$build$src$core$browser_events@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:86:393
+attachEvents_@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1622:152
+createDom_@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1621:115
+init@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1619:197
+init$$module$build$src$core$inject@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:421:254
+inject$$module$build$src$core$inject@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:415:312
+@webpack://plataforma/./src/script.ts?:34:25
+./src/script.ts@http://localhost:3000/bundle.js:96:1
+__webpack_require__@http://localhost:3000/bundle.js:388:32
+@http://localhost:3000/bundle.js:1454:56
+@http://localhost:3000/bundle.js:1456:12
+
+
+
+4. Erro na entrada/saída
+Invalid block definition for type: input_value
+Block$$module$build$src$core$block@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:974:488
+BlockSvg$$module$build$src$core$block_svg@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1226:385
+WorkspaceSvg$$module$build$src$core$workspace_svg.prototype.newBlock@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1644:444
+domToBlockHeadless$$module$build$src$core$xml@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:306:214
+domToBlockInternal$$module$build$src$core$xml@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:296:150
+createFlyoutBlock@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1420:4
+createFlyoutInfo@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1418:6
+show@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1416:192
+updateFlyout_@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1635:387
+setSelectedItem@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1634:103
+onClick_@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1623:97
+f@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:86:149
+EventListener.handleEvent*conditionalBind$$module$build$src$core$browser_events@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:86:393
+attachEvents_@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1622:152
+createDom_@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1621:115
+init@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:1619:197
+init$$module$build$src$core$inject@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:421:254
+inject$$module$build$src$core$inject@webpack://plataforma/./node_modules/blockly/blockly_compressed.js?:415:312
+@webpack://plataforma/./src/script.ts?:34:25
+./src/script.ts@http://localhost:3000/bundle.js:96:1
+__webpack_require__@http://localhost:3000/bundle.js:388:32
+@http://localhost:3000/bundle.js:1454:56
+@http://localhost:3000/bundle.js:1456:12
+
+5. Erro no generators.ts
+ERROR in /home/jamal/Documentos/Plataforma-Meninas-Programadoras/plataforma/src/generators.ts
+./src/generators.ts 4:43-48
+[tsl] ERROR in /home/jamal/Documentos/Plataforma-Meninas-Programadoras/plataforma/src/generators.ts(4,44)
+      TS7006: Parameter 'block' implicitly has an 'any' type.
+ts-loader-default_e3b0c44298fc1c14
+ @ ./src/script.ts 29:0-23
+
+6. Redimensionar o Workspace e salvar o tamanho no LocalStorage
+
+7. Para a função de desenhar, adicionar mover para posição X, Y desenhando e colocar uma grade no plano de fundo para ajudar no posicionamento, como poderia fazer isso?
+
+8. Colocar o canvas no lado direito do workspace e na mesma reta para ficar mais bonito
+
