@@ -1,7 +1,7 @@
 // src/generators.ts
 import * as Blockly from 'blockly';
 
-Blockly.JavaScript['draw_line'] = function(block) {
+Blockly.JavaScript['your_custom_block'] = function(block: Blockly.Block) {
   const x1 = Blockly.JavaScript.valueToCode(block, 'X1', Blockly.JavaScript.ORDER_ATOMIC) || '0';
   const y1 = Blockly.JavaScript.valueToCode(block, 'Y1', Blockly.JavaScript.ORDER_ATOMIC) || '0';
   const x2 = Blockly.JavaScript.valueToCode(block, 'X2', Blockly.JavaScript.ORDER_ATOMIC) || '0';

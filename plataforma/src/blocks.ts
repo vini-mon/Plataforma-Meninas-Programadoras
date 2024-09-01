@@ -1,5 +1,6 @@
 // src/blocks.ts
 import * as Blockly from 'blockly';
+import 'blockly/javascript'; // Importa o gerador JavaScript
 
 Blockly.Blocks['draw_line'] = {
   init: function () {

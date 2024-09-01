@@ -1,7 +1,7 @@
 import * as Blockly from 'blockly';
 import 'blockly/javascript'; // Importa o gerador JavaScript
 import './blocks'; // Importa os blocos personalizados
-import './generators'; // Importa os geradores personalizados
+// import './generators'; // Importa os geradores personalizados
 
 // ... (resto do código)
 
@@ -11,15 +11,24 @@ const output = document.getElementById('output') as HTMLElement;
 
 const toolbox = `
 <xml id="toolbox" style="display: none">
+
   <category name="Lógica" colour="#5C81A6">
     <block type="controls_if"></block>
+    <block type="controls_if">
+      <mutation else="1"></mutation>
+    </block>
+    <block type="controls_if">
+      <mutation elseif="1"></mutation>
+    </block>
     <block type="logic_compare"></block>
     <block type="logic_operation"></block>
     <block type="logic_negate"></block>
     <block type="logic_boolean"></block>
     <block type="logic_null"></block>
     <block type="logic_ternary"></block>
+
   </category>
+
   <category name="Controle" colour="#FFAB19">
     <block type="controls_repeat_ext"></block>
     <block type="controls_whileUntil"></block>
