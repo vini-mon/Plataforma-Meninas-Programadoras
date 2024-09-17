@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+#container {
+    display: flex;
+    height: 50vh;
+}
+
+#blocklyDiv {
+    background-color: #f2f2f2;
+}
+
+#mazeCanvas {
+    background-color: #fff;
+}
+
+/* Estilo para o botão "Rodar Código" */
+#runButton {
+    background-color: #4CAF50; /* Verde */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 12px;
+  }
+  
+  #runButton:hover {
+    background-color: #45a049; /* Verde mais escuro quando passar o mouse */
+  }
+  

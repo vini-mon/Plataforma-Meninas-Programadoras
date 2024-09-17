@@ -79,3 +79,4 @@ ts-loader-default_e3b0c44298fc1c14
 
 8. Colocar o canvas no lado direito do workspace e na mesma reta para ficar mais bonito
 
+9. Linguaguem para pt-br
