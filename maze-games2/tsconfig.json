@@ -1,7 +1,7 @@
 {
 "compilerOptions": {
     "types": ["blockly"],
-    "target": "ES5",
+    "target": "ES6",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
