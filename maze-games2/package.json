@@ -17,6 +17,7 @@
     "webpack-dev-server": "^5.1.0"
   },
   "dependencies": {
-    "blockly": "^11.1.1"
+    "blockly": "^11.1.1",
+    "mysql2": "^3.11.3"
   }
 }
