@@ -1,0 +1,5 @@
+Para rodar o servidor para login:
+    node server/server.js
+
+Para rodar o servidor da aplicação em si:
+    npm run serve
