@@ -7,7 +7,7 @@ window.onload = () => {
     const output = document.getElementById('output');
 
     if (!blocklyDiv) {
-        console.error('Elemento blocklyDiv não encontrado.');
+        console.log('Elemento blocklyDiv não encontrado.');
         return;
     }
 
@@ -28,6 +28,25 @@ window.onload = () => {
     // Inicializando o Blockly
     const workspace = Blockly.inject(blocklyDiv, {
         toolbox: toolbox
+    });
+
+    let modificationCount = 0;
+
+    // Função para atualizar o contador de modificações
+    function updateModificationCount() {
+        console.log('Modificação detectada');
+        modificationCount++;
+        document.getElementById('message').innerHTML = `Modificações: ${modificationCount}`;
+    }
+
+    // Adiciona os listeners para detectar criação e remoção de blocos
+    workspace.addChangeListener((event) => {
+        if (event.type === Blockly.Events.BLOCK_CREATE ||
+            event.type === Blockly.Events.BLOCK_DELETE ||
+            event.type === Blockly.Events.BLOCK_CHANGE) 
+        {
+            updateModificationCount();
+        }
     });
 
     // Definindo blocos manualmente para evitar conflitos
@@ -151,10 +170,10 @@ window.onload = () => {
     function setMaze(loadedMaze) {
         maze = loadedMaze;
         drawMaze(maze, context);
-    }
+    }    
 
     if (context) {
-        fetch('labirinto.json')
+        fetch('labirinto1.json')
             .then(response => response.json())
             .then((loadedMaze) => {
                 setMaze(loadedMaze);
@@ -210,4 +229,38 @@ window.onload = () => {
             await sleep(500);  // Pausa de 500ms
         }
     }
+
+    document.getElementById('clearWorkspaceButton').addEventListener('click', () => {
+        workspace.clear();
+    });
+    
+
+    // Função para salvar o estado do workspace no localStorage
+    function saveWorkspaceToLocal() {
+        var xml = Blockly.Xml.workspaceToDom(workspace);
+        var xmlText = Blockly.Xml.domToText(xml);
+        localStorage.setItem('blocklyWorkspace', xmlText);
+        localStorage.setItem('modificationCount', modificationCount);
+    }
+
+    // Função para carregar o estado do workspace a partir do localStorage
+    function loadWorkspaceFromLocal() {
+        var xmlText = localStorage.getItem('blocklyWorkspace');
+        if (xmlText) {
+            var xml = Blockly.utils.xml.textToDom(xmlText);
+            Blockly.Xml.domToWorkspace(xml, workspace);
+        }
+        modificationCount = parseInt(localStorage.getItem('modificationCount')) || 0;
+        modificationCount --;
+    }
+
+    loadWorkspaceFromLocal();
+
+    // Salve o estado do workspace sempre que houver mudanças
+    workspace.addChangeListener(() => {
+        saveWorkspaceToLocal();
+    });
+
+    
+
 };

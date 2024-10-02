@@ -40,14 +40,14 @@ connection.connect((err) => {
     const fs = require('fs');
     const csv = require('csv-parser');
 
-    const file = "src/DB/users.csv";
+    const file = "users.csv";
 
     fs.createReadStream(file).pipe(csv()).on('data', (row) => {
-        console.log(row);
-        console.log(row.NOME);
-        console.log(row['NOME']);
-        console.log(row.EMAIL);
-        console.log(row['EMAIL']);
+        // console.log(row);
+        // console.log(row.NOME);
+        // console.log(row['NOME']);
+        // console.log(row.EMAIL);
+        // console.log(row['EMAIL']);
         var sql = 'INSERT INTO users (name, email) VALUES ("' + row.NOME + '", "' + row.EMAIL + '");';
         connection.query(sql, (err, result) => {
             if (err) {

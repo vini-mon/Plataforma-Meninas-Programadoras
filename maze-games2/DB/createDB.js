@@ -63,6 +63,24 @@ connection.connect((err) => {
 
 	});
 
+	// insert admin user
+
+	const bcrypt = require('bcryptjs');
+	const password = bcrypt.hashSync('admin', 10);
+
+	var sql = 'INSERT INTO users (name, email, password) VALUES ("admin", "admin@admin.com", "' + password + '");';
+
+	connection.query(sql, (err, result) => {
+
+		if (err) {
+			console.error('Erro ao inserir usuário admin:', err.message);
+			return;
+		}
+
+		console.log('Usuário admin inserido com sucesso');
+
+	});
+
     // Fechar a conexão
     connection.end();
   
