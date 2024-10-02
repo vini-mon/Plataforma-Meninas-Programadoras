@@ -1,0 +1,4 @@
+1. ajustar a paginação dos labirintos
+2. ajustar json para inicio do personagem
+3. banco de dados para salvar as coisas
+4. ajustar o botão de parada

@@ -48,7 +48,6 @@ var workspace = Blockly.inject('blocklyDiv', {
             <block type="math_number"></block>
             <block type="math_arithmetic"></block>
             <block type="math_random_int"></block>
-
         </category>
         
         <!-- Blocos de Texto -->

@@ -19,12 +19,15 @@ window.onload = () => {
         <block type="move_down"></block>
         <block type="move_left"></block>
     </category>
+
     <category name="Controle" colour="#FFAB19">
+        <block type="math_number"></block>
         <block type="controls_whileTrue"></block>
+        <block type="controls_for"></block>
     </category>
     </xml>
     `;
-
+    
     // Inicializando o Blockly
     const workspace = Blockly.inject(blocklyDiv, {
         toolbox: toolbox
@@ -96,6 +99,19 @@ window.onload = () => {
         }
     };
 
+    // Bloco de i repetições
+    Blockly.Blocks['controls_for'] = {
+        init: function () {
+            this.appendDummyInput().appendField('Repetir');
+            this.appendValueInput('IF0').setCheck('Number');
+            this.appendDummyInput().appendField('vezes')
+            this.appendStatementInput('DO').setCheck(null);
+            this.setColour(230);
+            this.setPreviousStatement(true, null);
+            this.setNextStatement(true, null);
+        }
+    };
+
     // Agora associamos manualmente os blocos com o gerador JavaScript
     javascriptGenerator.forBlock['move_up'] = function (block) {
         return 'await moveUp();\n';
@@ -115,7 +131,13 @@ window.onload = () => {
 
     javascriptGenerator.forBlock['controls_whileTrue'] = function (block) {
         const branch = javascriptGenerator.statementToCode(block, 'DO');
-        return `while (running) {\n ${branch} await sleep(500);\n}\n`;
+        return `while (running) {\n ${branch} if (!running) break; await sleep(250);\n}\n`;
+    };
+
+    javascriptGenerator.forBlock['controls_for'] = function (block) {
+        const repetitions = javascriptGenerator.valueToCode(block, 'IF0', javascriptGenerator.ORDER_NONE) || '0';
+        const branch = javascriptGenerator.statementToCode(block, 'DO');
+        return `for (let i = 0; i < ${repetitions}; i++) {\n ${branch} if (!running) break; await sleep(250);\n}\n`;
     };
 
     // Estado de controle para parar o loop
@@ -141,8 +163,11 @@ window.onload = () => {
 
     // Função que verifica se o jogador chegou à saída
     function checkWin() {
+        console.log('Verificando vitória...');
         if (maze.cells[playerPosition.y][playerPosition.x] === 2) {
+            running = false;  // Para a execução do loop
             document.getElementById('message').innerHTML = 'Parabéns! Você chegou à saída!';
+            // throw new Error('Vitória!');  // Lança um erro para parar a execução do código
         }
     }
 
@@ -153,10 +178,14 @@ window.onload = () => {
 
     // Listener do botão de reiniciar
     document.getElementById('resetButton').addEventListener('click', () => {
+
         running = false;  // Para a execução do loop
-        playerPosition = { x: 1, y: 1 };  // Reinicia a posição do jogador
+
         drawMaze(maze, context);  // Redesenha o labirinto com o jogador na posição inicial
         document.getElementById('message').innerHTML = '';  // Limpa a mensagem de vitória
+
+        playerPosition = { x: 1, y: 1 };  // Reseta a posição do jogador
+
     });
 
     // Funções para mover o personagem no labirinto
@@ -202,7 +231,8 @@ window.onload = () => {
         if (maze.cells[playerPosition.y - 1][playerPosition.x] !== 1) {
             playerPosition.y -= 1;
             drawMaze(maze, context);
-            await sleep(500);  // Pausa de 500ms
+            checkWin();
+            await sleep(250);  // Pausa de 500ms
         }
     }
 
@@ -210,7 +240,8 @@ window.onload = () => {
         if (maze.cells[playerPosition.y][playerPosition.x + 1] !== 1) {
             playerPosition.x += 1;
             drawMaze(maze, context);
-            await sleep(500);  // Pausa de 500ms
+            checkWin();
+            await sleep(250);  // Pausa de 500ms
         }
     }
 
@@ -218,7 +249,8 @@ window.onload = () => {
         if (maze.cells[playerPosition.y + 1][playerPosition.x] !== 1) {
             playerPosition.y += 1;
             drawMaze(maze, context);
-            await sleep(500);  // Pausa de 500ms
+            checkWin();
+            await sleep(250);  // Pausa de 500ms
         }
     }
 
@@ -226,7 +258,8 @@ window.onload = () => {
         if (maze.cells[playerPosition.y][playerPosition.x - 1] !== 1) {
             playerPosition.x -= 1;
             drawMaze(maze, context);
-            await sleep(500);  // Pausa de 500ms
+            checkWin();
+            await sleep(250);  // Pausa de 500ms
         }
     }
 
