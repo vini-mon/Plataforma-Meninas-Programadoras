@@ -22,7 +22,7 @@ window.onload = () => {
 
     <category name="Controle" colour="#FFAB19">
         <block type="math_number"></block>
-        <block type="controls_whileTrue"></block>
+        <!-- <block type="controls_whileTrue"></block> -->
         <block type="controls_for"></block>
     </category>
     </xml>
@@ -131,13 +131,13 @@ window.onload = () => {
 
     javascriptGenerator.forBlock['controls_whileTrue'] = function (block) {
         const branch = javascriptGenerator.statementToCode(block, 'DO');
-        return `while (running) {\n ${branch} if (!running) break; await sleep(250);\n}\n`;
+        return `while (running) {\n ${branch} if (!running) break; \n}\n`;
     };
 
     javascriptGenerator.forBlock['controls_for'] = function (block) {
         const repetitions = javascriptGenerator.valueToCode(block, 'IF0', javascriptGenerator.ORDER_NONE) || '0';
         const branch = javascriptGenerator.statementToCode(block, 'DO');
-        return `for (let i = 0; i < ${repetitions}; i++) {\n ${branch} if (!running) break; await sleep(250);\n}\n`;
+        return `for (let i = 0; i < ${repetitions}; i++) {\n ${branch} if (!running) break; \n}\n`;
     };
 
     // Estado de controle para parar o loop
@@ -179,30 +179,26 @@ window.onload = () => {
     // Listener do botão de reiniciar
     document.getElementById('resetButton').addEventListener('click', () => {
 
-        running = false;  // Para a execução do loop
-
-        drawMaze(maze, context);  // Redesenha o labirinto com o jogador na posição inicial
-        document.getElementById('message').innerHTML = '';  // Limpa a mensagem de vitória
-
-        playerPosition = { x: 1, y: 1 };  // Reseta a posição do jogador
+        resetMaze();
 
     });
 
     // Funções para mover o personagem no labirinto
-    let playerPosition = { x: 1, y: 1 };  // Posição inicial do personagem
+    let playerPosition = { x: 0, y: 0 };  // Posição inicial do personagem
 
     const canvas = document.getElementById('mazeCanvas');
     const context = canvas.getContext('2d');
     
-    let maze = { cells: [] };  // Inicializa como um labirinto vazio
+    let maze = { cells: [], start: { x: 0, y: 0 } };  // Inicializa como um labirinto vazio
 
     function setMaze(loadedMaze) {
         maze = loadedMaze;
+        playerPosition = { x: maze.start.x, y: maze.start.y };
         drawMaze(maze, context);
     }    
 
     if (context) {
-        fetch('labirinto1.json')
+        fetch('labirinto2.json')
             .then(response => response.json())
             .then((loadedMaze) => {
                 setMaze(loadedMaze);
@@ -227,12 +223,25 @@ window.onload = () => {
         context.fillRect(playerPosition.x * cellSize, playerPosition.y * cellSize, cellSize, cellSize);
     }
 
+    function resetMaze() {
+
+        running = false;  // Para a execução do loop
+        
+        playerPosition = { x: maze.start.x, y: maze.start.y };  // Reseta a posição do jogador
+
+        drawMaze(maze, context);  // Redesenha o labirinto com o jogador na posição inicial
+        document.getElementById('message').innerHTML = '';  // Limpa a mensagem de vitória
+
+    }
+
+    const sleepTime = 500;
+
     async function moveUp() {
         if (maze.cells[playerPosition.y - 1][playerPosition.x] !== 1) {
             playerPosition.y -= 1;
             drawMaze(maze, context);
             checkWin();
-            await sleep(250);  // Pausa de 500ms
+            await sleep(sleepTime);
         }
     }
 
@@ -241,7 +250,7 @@ window.onload = () => {
             playerPosition.x += 1;
             drawMaze(maze, context);
             checkWin();
-            await sleep(250);  // Pausa de 500ms
+            await sleep(sleepTime);
         }
     }
 
@@ -250,16 +259,16 @@ window.onload = () => {
             playerPosition.y += 1;
             drawMaze(maze, context);
             checkWin();
-            await sleep(250);  // Pausa de 500ms
+            await sleep(sleepTime);
         }
     }
 
     async function moveLeft() {
-        if (maze.cells[playerPosition.y][playerPosition.x - 1] !== 1) {
+        if ( maze.cells[playerPosition.y][playerPosition.x - 1] !== 1) {
             playerPosition.x -= 1;
             drawMaze(maze, context);
             checkWin();
-            await sleep(250);  // Pausa de 500ms
+            await sleep(sleepTime);
         }
     }
 
@@ -293,7 +302,5 @@ window.onload = () => {
     workspace.addChangeListener(() => {
         saveWorkspaceToLocal();
     });
-
-    
 
 };
