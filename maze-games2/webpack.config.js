@@ -20,7 +20,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
-        static: './src',
+        static: [
+        {
+            directory: path.join(__dirname, 'src'),
+        }
+        ],
         port: 8080,
         proxy: [
             {

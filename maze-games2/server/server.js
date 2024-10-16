@@ -3,10 +3,10 @@ const mysql = require('mysql2/promise');
 const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const app = express();
 
 console.log('Iniciando servidor Node.js');
 
-const app = express();
 const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
